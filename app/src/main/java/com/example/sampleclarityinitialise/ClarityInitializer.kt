@@ -17,6 +17,7 @@ val scope = CoroutineScope(SupervisorJob())
 
 class ClarityInitializer : Initializer<Unit> {
 
+    // Add project id
     private val projectId = ""
 
     override fun create(context: Context) {
@@ -40,6 +41,7 @@ class ClarityInitializer : Initializer<Unit> {
 //            delay(5000)
 //            Clarity.setOnNewSessionStartedCallback {
 //                Log.i("ClarityInit","setOnNewSessionStartedCallback ${Clarity.getCurrentSessionUrl()}")
+//                setCustomAttributes()
 //                Clarity.getCurrentSessionUrl()?.let { url ->
 //                    // Do something with url
 //                }
@@ -51,6 +53,7 @@ class ClarityInitializer : Initializer<Unit> {
 //            delay(5000)
 //            Clarity.setOnSessionStartedCallback {
 //                Log.i("ClarityInit","setOnSessionStartedCallback ${Clarity.getCurrentSessionUrl()}")
+//                setCustomAttributes()
 //                Clarity.getCurrentSessionUrl()?.let { url ->
 //                    // Do something with url
 //                }
@@ -63,6 +66,8 @@ class ClarityInitializer : Initializer<Unit> {
                     "ClarityInit",
                     "setOnSessionStartedCallback ${Clarity.getCurrentSessionUrl()}"
                 )
+                setCustomAttributes()
+
                 Clarity.getCurrentSessionUrl()?.let { url ->
                     // Do something with url
                 }
@@ -71,11 +76,24 @@ class ClarityInitializer : Initializer<Unit> {
             // SDK VERSION 3.0.0
 //            Clarity.startNewSession { url ->
 //                Log.i("ClarityInit","startNewSession $url")
+//                setCustomAttributes()
 //                Clarity.getCurrentSessionUrl()?.let { url ->
 //                    // Do something with url
 //                }
 //            }
         }
+    }
+
+    private fun setCustomAttributes() {
+        Clarity.setCustomUserId("4c19ba83-7fc0-4fba-a6df-560013e8df9e")
+        Clarity.setCustomTag("IS_PROP_1", "TRUE")
+        Clarity.setCustomTag("IS_PROP_2", "FALSE")
+        Clarity.setCustomTag("IS_PROP_1", "TRUE")
+        Clarity.setCustomTag("IS_PROP_2", "FALSE")
+        Clarity.setCustomTag("IS_PROP_1", "TRUE")
+        Clarity.setCustomTag("IS_PROP_2", "FALSE")
+        Clarity.setCustomTag("IS_PROP_1", "TRUE")
+        Clarity.setCustomTag("IS_PROP_2", "FALSE")
     }
 
     override fun dependencies(): MutableList<Class<out Initializer<*>>> = mutableListOf(
