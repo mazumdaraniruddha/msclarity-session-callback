@@ -17,7 +17,7 @@ val scope = CoroutineScope(SupervisorJob())
 
 class ClarityInitializer : Initializer<Unit> {
 
-    private val projectId = "p67v6vxx7p"
+    private val projectId = ""
 
     override fun create(context: Context) {
         // We have an App wide coroutine scope, which is essentially a scope with SupervisorJob
